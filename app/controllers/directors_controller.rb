@@ -46,9 +46,9 @@ class DirectorsController < ApplicationController
 
     if @director.valid?
       @director.save
-      redirect_to("/directors", { :notice => "Department created successfully." })
+      redirect_to("/directors", { :notice => "Director created successfully." })
     else
-      redirect_to("/directors", { :notice => "Department failed to create successfully." })
+      redirect_to("/directors", { :notice => "Director failed to create successfully." })
     end
   end
 
@@ -60,13 +60,11 @@ class DirectorsController < ApplicationController
     @director.bio = params.fetch("query_bio")
     @director.image = params.fetch("query_image")
 
-    pp(params.fetch("query_name"))
-
     if @director.valid?
       @director.save
-      redirect_to("/directors/#{the_id}", { :notice => "Department updated successfully."} )
+      redirect_to("/directors/#{the_id}", { :notice => "Director updated successfully."} )
     else
-      redirect_to("/directors/#{the_id}", { :alert => "Department failed to update successfully." })
+      redirect_to("/directors/#{the_id}", { :alert => "Director failed to update successfully." })
     end
   end
 
@@ -76,7 +74,7 @@ class DirectorsController < ApplicationController
     @director = Director.where({ :id => the_id }).at(0)
     @director.destroy
 
-    redirect_to("/directors", { :notice => "Department deleted successfully."} )
+    redirect_to("/directors", { :notice => "Director deleted successfully."} )
   end
 
 end
