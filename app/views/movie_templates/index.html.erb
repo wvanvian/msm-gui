@@ -109,7 +109,7 @@
       
       <% the_director = matching_directors.at(0) %>
 
-      <%= the_director.name %>
+      <%= matching_directors.at(0).nil? ? "" : the_director.name %>
     </td>
 
     <td>
